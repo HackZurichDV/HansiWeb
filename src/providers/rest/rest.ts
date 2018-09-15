@@ -13,7 +13,7 @@ export  class  RestProvider {
   constructor(private  httpClient : HttpClient) { }
 
   public  getLists(): Observable<List[]> {
-    return this.httpClient.get(this.baseUrl + '/lists').map(lists  => {
+    return this.httpClient.get(this.baseUrl + '/lists').map((lists:[Object])  => {
       return lists.map((list) => new List(list));
     });
   }
